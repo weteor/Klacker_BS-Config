@@ -1,0 +1,11 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/weteor
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: Tipper_TF_rev2
+      import: app/west.yml
+  self:
+    path: config
