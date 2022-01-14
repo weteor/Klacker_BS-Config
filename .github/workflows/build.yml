@@ -33,17 +33,17 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-      - name: West Build (TIPPER_TF)
-        run: west build -s zmk/app -b tipper_tf -- -DZMK_CONFIG="${GITHUB_WORKSPACE}"
-      - name: TIPPER_TF DTS File
+      - name: West Build (KLACKER_BS)
+        run: west build -s zmk/app -b klacker_bs -- -DZMK_CONFIG="${GITHUB_WORKSPACE}"
+      - name: KLACKER_BS DTS File
         if: ${{ always() }}
-        run: cat -n build/zephyr/tipper_tf.dts.pre.tmp
-      - name: TIPPER_TF Kconfig file
+        run: cat -n build/zephyr/klacker_bs.dts.pre.tmp
+      - name: KLACKER_BS Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 tipper_tf.uf2
-      - name: Archive (TIPPER_TF)
+        run: cp build/zephyr/zmk.uf2 klacker_bs.uf2
+      - name: Archive (KLACKER_BS)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: tipper_tf.uf2
+          path: klacker_bs.uf2
