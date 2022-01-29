@@ -26,63 +26,63 @@
 
         combo_slash {
             timeout-ms = <50>;
-            key-positions = <0 10>;
+            key-positions = <0 13>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp SLASH>;
             };
         combo_lBracket {
             timeout-ms = <50>;
-            key-positions = <1 11>;
+            key-positions = <1 14>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp LEFT_BRACKET>;
             };
         combo_lBrace {
             timeout-ms = <50>;
-            key-positions = <2 12>;
+            key-positions = <2 15>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp LEFT_BRACE>;
             };
         combo_lParanthesis {
             timeout-ms = <50>;
-            key-positions = <3 13>;
+            key-positions = <3 16>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp LEFT_PARENTHESIS>;
             };
         combo_equal {
             timeout-ms = <50>;
-            key-positions = <4 14>;
+            key-positions = <4 17>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp EQUAL>;
             };
 
         combo_asterix {
             timeout-ms = <50>;
-            key-positions = <5 15>;
+            key-positions = <5 18>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp ASTERISK>;
             };
 
         combo_rParanthesis {
             timeout-ms = <50>;
-            key-positions = <6 16>;
+            key-positions = <6 19>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp RIGHT_PARENTHESIS>;
             };
         combo_rBrace {
             timeout-ms = <50>;
-            key-positions = <7 17>;
+            key-positions = <7 20>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp RIGHT_BRACE>;
             };
         combo_rBracket {
             timeout-ms = <50>;
-            key-positions = <8 18>;
+            key-positions = <8 21>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp RIGHT_BRACKET>;
             };
         combo_bSlash {
             timeout-ms = <50>;
-            key-positions = <9 19>;
+            key-positions = <9 22>;
             layers = <BAS_CM_L BAS_HD_L>;
             bindings = <&kp BACKSLASH>;
             };
@@ -97,6 +97,11 @@
             key-positions = <7 8>;
             bindings = <&kp BACKSPACE>;
             };
+        combo_backspaceNP {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&kp BACKSPACE>;
+            };
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
@@ -105,19 +110,19 @@
 
         combo_cfgLayer {
             timeout-ms = <50>;
-            key-positions = <31 32>;
+            key-positions = <51 52>;
             bindings = <&mo CFG_L>;
             };
 
         combo_bleLayer {
             timeout-ms = <50>;
-            key-positions = <30 31>;
+            key-positions = <50 51>;
             bindings = <&mo BLE_L>;
             };
 
         combo_capsWord {
             timeout-ms = <50>;
-            key-positions = <22 27>;
+            key-positions = <28 34>;
             bindings = <&caps_word>;
             };
 
@@ -161,10 +166,11 @@
 // ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
 //       -------------------------     -------------------------
             bindings = <
-                &kp Q       &kp W       &kp F       &kp P       &kp G                   &kp J       &kp L       &kp U       &kp Y       &kp QUOT        &kp NP_7     &kp NP_8    &kp NP_9
-                &hm LSHFT A &hm LGUI R  &hm LALT S  &hm LCTRL T &kp D                   &kp H       &hm RCTRL N &hm RALT E  &hm RGUI I  &hm RSHFT O     &kp NP_4     &kp NP_5    &kp NP_6
-                &kp Z       &kp X       &kp C       &kp V       &kp B       &none       &kp K       &kp M       &kp COMMA   &kp DOT     &kp SEMI        &kp NP_1     &kp NP_2    &kp NP_3
-                &none       &none                                       &none    &none                                      &none       &none           &kp NP_ENTER &kp NP_0    &kp NP_DOT
+                &kp Q       &kp W       &kp F       &kp P       &kp G                   &kp J       &kp L       &kp U       &kp Y       &kp QUOT        &kp KP_N7     &kp KP_N8    &kp KP_N9
+                &hm LSHFT A &hm LGUI R  &hm LALT S  &hm LCTRL T &kp D                   &kp H       &hm RCTRL N &hm RALT E  &hm RGUI I  &hm RSHFT O     &kp KP_N4     &kp KP_N5    &kp KP_N6
+                &kp Z       &kp X       &kp C       &kp V       &kp B       &kp N7       &kp K       &kp M       &kp COMMA   &kp DOT     &kp SEMI        &kp KP_N1     &kp KP_N2    &kp KP_N3
+//                &none       &none                                       &none    &none                                      &none       &none           &kp KP_ENTER  &kp KP_N0    &kp KP_DOT
+                &kp N1       &kp N2                                       &kp N3    &kp N4                                      &kp KP_ENTER &kp KP_N0      &kp KP_DOT    &kp KP_MULTIPLY    &kp KP_PLUS
                                           &lt NUM_L SPACE  &mo NAV_L                    &mo SYM_L   &kp RET 
             >;
         };
@@ -178,10 +184,10 @@
 // ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
 //       -------------------------     -------------------------
             bindings = <
-                &kp W       &kp C       &kp H       &kp F       &kp V                   &kp SEMI    &kp Y       &kp U       &kp J       &kp Q           &kp NP_7     &kp NP_8    &kp NP_9
-                &hm LSHFT R &hm LGUI S  &hm LALT N  &hm LCTRL T &kp G                   &kp K       &hm RCTRL I &hm RALT E  &hm RGUI O  &hm RSHFT A     &kp NP_4     &kp NP_5    &kp NP_6
-                &kp X       &kp M       &kp L       &kp D       &kp B       &none       &kp Z       &kp P       &kp COMMA   &kp DOT     &kp QUOT        &kp NP_1     &kp NP_2    &kp NP_3
-                &none       &none                                       &none    &none                                      &none       &none           &kp NP_ENTER &kp NP_0    &kp NP_DOT
+                &kp W       &kp C       &kp H       &kp F       &kp V                   &kp SEMI    &kp Y       &kp U       &kp J       &kp Q           &kp KP_N7     &kp KP_N8    &kp KP_N9
+                &hm LSHFT R &hm LGUI S  &hm LALT N  &hm LCTRL T &kp G                   &kp K       &hm RCTRL I &hm RALT E  &hm RGUI O  &hm RSHFT A     &kp KP_N4     &kp KP_N5    &kp KP_N6
+                &kp X       &kp M       &kp L       &kp D       &kp B       &none       &kp Z       &kp P       &kp COMMA   &kp DOT     &kp QUOT        &kp KP_N1     &kp KP_N2    &kp KP_N3
+                &none       &none                                       &none    &none                                      &kp KP_ENTER &kp KP_N0      &kp KP_DOT    &kp KP_MULTIPLY    &kp KP_PLUS
                                           &lt NUM_L SPACE  &mo NAV_L                  &mo SYM_L   &kp RET 
             >;
         };
@@ -232,7 +238,7 @@
             bindings = <
                 &none       &kp F9      &kp F10     &kp F11     &kp F12                 &kp PLUS        &kp N7      &kp N8   &kp N9   &kp SLASH         &none   &none   &none  
                 &none       &kp F5      &kp F6      &kp F7      &kp F8                  &kp N0          &kp N4      &kp N5   &kp N6   &kp DOT           &none   &none   &none 
-                &none       &kp F1      &kp F2      &kp F3      &kp F4       &none      &kp MINUS       &kp N1      &kp N2   &kp N3   &kp MULTIPLY      &none   &none   &none                 
+                &none       &kp F1      &kp F2      &kp F3      &kp F4       &none      &kp MINUS       &kp N1      &kp N2   &kp N3   &kp ASTERISK      &none   &none   &none                 
                 &none       &none                                       &none    &none                                      &none       &none           &none   &none   &none
                                                     &none       &none                   &kp EQUAL       &kp ENTER
             >;
@@ -266,7 +272,7 @@
             bindings = <
                 &kp B       &none       &reset      &none       &bootloader         &out OUT_USB &out OUT_BLE &none        &none        &bt BT_CLR    &none   &none   &none  
                 &none       &none       &none       &none       &none               &none        &none        &none        &none        &none         &none   &none   &none  
-                &none       &none       &none       &none       &none         &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  ;&none   &none   &none
+                &none       &none       &none       &none       &none         &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &none   &none   &none
                 &none       &none                                       &none    &none                                       &none       &none         &none   &none   &none
                                                     &none       &none               &none       &none
             >;
