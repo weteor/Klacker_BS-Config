@@ -10,12 +10,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BAS_CM_L 0
-#define BAS_HD_L 1
-#define SYM_L 2
-#define NAV_L 3
-#define NUM_L 4
-#define CFG_L 5
-#define BLE_L 6
+#define CFG_L 1
 
 // repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -24,108 +19,28 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_slash {
-            timeout-ms = <50>;
-            key-positions = <0 13>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp SLASH>;
-            };
-        combo_lBracket {
-            timeout-ms = <50>;
-            key-positions = <1 14>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp LEFT_BRACKET>;
-            };
-        combo_lBrace {
-            timeout-ms = <50>;
-            key-positions = <2 15>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp LEFT_BRACE>;
-            };
-        combo_lParanthesis {
-            timeout-ms = <50>;
-            key-positions = <3 16>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp LEFT_PARENTHESIS>;
-            };
-        combo_equal {
-            timeout-ms = <50>;
-            key-positions = <4 17>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp EQUAL>;
-            };
-
-        combo_asterix {
-            timeout-ms = <50>;
-            key-positions = <5 18>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp ASTERISK>;
-            };
-
-        combo_rParanthesis {
-            timeout-ms = <50>;
-            key-positions = <6 19>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp RIGHT_PARENTHESIS>;
-            };
-        combo_rBrace {
-            timeout-ms = <50>;
-            key-positions = <7 20>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp RIGHT_BRACE>;
-            };
-        combo_rBracket {
-            timeout-ms = <50>;
-            key-positions = <8 21>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp RIGHT_BRACKET>;
-            };
-        combo_bSlash {
-            timeout-ms = <50>;
-            key-positions = <9 22>;
-            layers = <BAS_CM_L BAS_HD_L>;
-            bindings = <&kp BACKSLASH>;
-            };
-
         combo_tab {
             timeout-ms = <50>;
-            key-positions = <1 2>;
+            key-positions = <4 5>;
             bindings = <&kp TAB>;
             };
         combo_backspace {
             timeout-ms = <50>;
-            key-positions = <7 8>;
+            key-positions = <10 11>;
             bindings = <&kp BACKSPACE>;
             };
-        combo_backspaceNP {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&kp BACKSPACE>;
-            };
+            
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <0 1>;
+            key-positions = <3 4>;
             bindings = <&kp ESCAPE>;
             };
 
         combo_cfgLayer {
             timeout-ms = <50>;
-            key-positions = <51 52>;
+            key-positions = <50 51>;
             bindings = <&mo CFG_L>;
             };
-
-        combo_bleLayer {
-            timeout-ms = <50>;
-            key-positions = <50 51>;
-            bindings = <&mo BLE_L>;
-            };
-
-        combo_capsWord {
-            timeout-ms = <50>;
-            key-positions = <28 34>;
-            bindings = <&caps_word>;
-            };
-
     };
 
     behaviors {
@@ -140,19 +55,10 @@
     };
     
 // COMBOS
-// vertical
-// -------------------------------     -------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |     |  Y  |  U  |  I  |  O  |  P  | 
-// |  /  |  [  |  {  |  (  |  =  |     |  *  |  )  |  }  |  ]  |  \  |  
-// |  A  |  S  |  D  |  F  |  G  |     |  H  |  J  |  K  |  L  |  '  | 
-//
-// others:
 // Q + W - escape
-// W + E - tab
-// I + O - backspace
-// C + , - word caps
+// W + F - tab
+// U + Y - backspace
 // both inner thumbs -> Layer CFG
-// both left thumbs  -> Layer BLE
 
     keymap {
         compatible = "zmk,keymap";
@@ -166,81 +72,11 @@
 // ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
 //       -------------------------     -------------------------
             bindings = <
-                &kp Q       &kp W       &kp F       &kp P       &kp G                        &kp J       &kp L       &kp U       &kp Y       &kp QUOT        &kp KP_N7     &kp KP_N8    &kp KP_N9
-                &hm LSHFT A &hm LGUI R  &hm LALT S  &hm LCTRL T &kp D         &kp N7         &kp H       &hm RCTRL N &hm RALT E  &hm RGUI I  &hm RSHFT O     &kp KP_N4     &kp KP_N5    &kp KP_N6
-                &kp Z       &kp X       &kp C       &kp V       &kp B    &kp N3    &kp N4    &kp K       &kp M       &kp COMMA   &kp DOT     &kp SEMI        &kp KP_N1     &kp KP_N2    &kp KP_N3
-//                &none       &none                                       &none    &none                                      &none       &none           &kp KP_ENTER  &kp KP_N0    &kp KP_DOT
-                &kp N1       &kp N2                                                                             &kp KP_ENTER &kp KP_N0      &kp KP_DOT    &kp KP_MULTIPLY    &kp KP_PLUS
-                                          &lt NUM_L SPACE  &mo NAV_L                    &mo SYM_L   &kp RET 
-            >;
-        };
-    
-        handsdown_layer {
-            label = "Base Hands Down";
-// -------------------------------     -------------------------------
-// |  W  |  C  |  H  |  F  |  V  |  -  |  ;  |  Y  |  U  |  J  |  Q  | 
-// |R sft|S win|N alt|T ctl|  G  | MUT |  K  |I ctl|E alt|O win|A sft| 
-// |  X  |  M  |  L  |  D  |  B  |  -  |  Z  |  P  |  ,  |  .  |  '  | 
-// ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
-//       -------------------------     -------------------------
-            bindings = <
-                &kp W       &kp C       &kp H       &kp F       &kp V                   &kp SEMI    &kp Y       &kp U       &kp J       &kp Q           &kp KP_N7     &kp KP_N8    &kp KP_N9
-                &hm LSHFT R &hm LGUI S  &hm LALT N  &hm LCTRL T &kp G                   &kp K       &hm RCTRL I &hm RALT E  &hm RGUI O  &hm RSHFT A     &kp KP_N4     &kp KP_N5    &kp KP_N6
-                &kp X       &kp M       &kp L       &kp D       &kp B       &none       &kp Z       &kp P       &kp COMMA   &kp DOT     &kp QUOT        &kp KP_N1     &kp KP_N2    &kp KP_N3
-                &none       &none                                       &none    &none                                      &kp KP_ENTER &kp KP_N0      &kp KP_DOT    &kp KP_MULTIPLY    &kp KP_PLUS
-                                          &lt NUM_L SPACE  &mo NAV_L                  &mo SYM_L   &kp RET 
-            >;
-        };
-
-        sym_layer {
-            label = "Symbol";
-// -------------------------------     -------------------------------
-// |  `  |  ^  |  @  |  $  |  ~  |  -  |     |     |     |     |     | 
-// |  &  |  !  |  +  |  _  |  #  | MUT |pg up|     |     |     |     | 
-// |  |  |  ?  |  -  |  %  |     |  -  |pg dn|     |     |     |     | 
-// ------|           |    CFG    |     |           |           |------
-//       -------------------------     -------------------------
-            bindings = <
-                &kp GRAVE   &kp CARET   &kp AT      &kp DOLLAR  &kp TILDE               &none       &none       &none       &none       &none           &none   &none   &none 
-                &kp AMPS    &kp EXCL    &kp PLUS    &kp UNDER   &kp HASH                &kp PG_UP   &none       &none       &none       &none           &none   &none   &none
-                &kp PIPE    &kp QMARK   &kp MINUS   &kp PERCENT &none        &none      &kp PG_DN   &none       &none       &none       &none           &none   &none   &none
-                &none       &none                                       &none    &none                                      &none       &none           &none   &none   &none
-                                                    &none       &none                   &none       &none
-            >;
-            sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
-        };
-        
-        nav_layer {
-            label = "Navigation";
-// -------------------------------     -------------------------------
-// |     |     |     |     |     |  -  |     |pg dn| up  |pg up| del | 
-// |     |     |     |     |     | MUT |home |left |down |right| end | 
-// |     |     |     |     |     |  -  |     |prev | play|stop | next| 
-// ------|           |           |     |    CFG    |           |------
-//       -------------------------     -------------------------
-            bindings = <
-                &none       &none       &none       &none       &none                   &none       &kp PG_UP   &kp UP      &kp PG_DN   &kp DEL         &none   &none   &none 
-                &kp LSHFT   &kp LGUI    &kp LALT    &kp LCTRL   &none                   &kp HOME    &kp LEFT    &kp DOWN    &kp RIGHT   &kp END         &none   &none   &none 
-                &none       &none       &none       &none       &none                   &none       &none       &none       &none       &none           &none   &none   &none 
-                &none       &none                                       &none    &none                                      &none       &none           &none   &none   &none
-                                                    &none       &none                   &none       &none
-            >;
-        };
-
-        num_layer {
-            label = "Numbers and F-Keys";
-// -------------------------------     -------------------------------
-// |     |  F9 | F10 | F11 | F12 |  -  |  +  | num7| num8| num9|  /  | 
-// |     |  F5 |  F6 |  F7 |  F8 | MUT |  0  | num4| num5| num6|  .  | 
-// |     |  F1 |  F2 |  F3 |  F4 |  -  |  -  | num1| num2| num3|  *  | 
-// ------|           |           |     |     =     |   ENTER   |------
-//       -------------------------     -------------------------
-            bindings = <
-                &none       &kp F9      &kp F10     &kp F11     &kp F12                 &kp PLUS        &kp N7      &kp N8   &kp N9   &kp SLASH         &none   &none   &none  
-                &none       &kp F5      &kp F6      &kp F7      &kp F8                  &kp N0          &kp N4      &kp N5   &kp N6   &kp DOT           &none   &none   &none 
-                &none       &kp F1      &kp F2      &kp F3      &kp F4       &none      &kp MINUS       &kp N1      &kp N2   &kp N3   &kp ASTERISK      &none   &none   &none                 
-                &none       &none                                       &none    &none                                      &none       &none           &none   &none   &none
-                                                    &none       &none                   &kp EQUAL       &kp ENTER
+                &kp KP_N7     &kp KP_N8    &kp KP_N9                &kp Q        &kp W       &kp F       &kp P       &kp G                    &kp J       &kp L       &kp U       &kp Y       &kp QUOT
+                &kp KP_N4     &kp KP_N5    &kp KP_N6                &hm LSHFT A  &hm LGUI R  &hm LALT S  &hm LCTRL T &kp D                    &kp H       &hm RCTRL N &hm RALT E  &hm RGUI I  &hm RSHFT O     
+                &kp KP_N1     &kp KP_N2    &kp KP_N3                &kp Z        &kp X       &kp C       &kp V       &kp B       &kp N7       &kp K       &kp M       &kp COMMA   &kp DOT     &kp SEMI        
+                &kp KP_DOT    &kp KP_N0    &kp KP_DOT               &kp KP_ENTER &kp KP_EQUAL                               &kp N3    &kp N4                                      &kp N1      &kp N2 
+                                                                                                         &kp SPACE   &kp SPACE                &kp RET     &kp RET 
             >;
         };
         
@@ -253,28 +89,11 @@
 // ------|           |           |     |           |           |------
 //       -------------------------     -------------------------
             bindings = <
-                &kp C       &none       &to BAS_CM_L    &to BAS_HD_L   &kp PSCRN         &none       &none       &none       &none       &none         &none   &none   &none  
-                &none       &none       &none        &none       &none                   &none       &none       &none       &none       &none         &none   &none   &none
-                &kp KP_NUM  &none       &none        &none       &none                   &none       &none       &none       &none       &none         &none   &none   &none
-                &none       &none                                       &none    &none                                       &none       &none         &none   &none   &none
-                                                     &none       &none                   &none       &none
-            >;
-        };
-        
-        ble_layer {
-            label = "BLE stuff";
-// -------------------------------     -------------------------------
-// |     |     |     |     |     |  -  | USB | BLE |     |     |BTCLR| 
-// |     |     |     |     |     |     |     |     |     |     |     | 
-// |     |     |     |     |     |  -  |BT_0 |BT_1 |BT_2 |BT_3 |BT_4 | 
-// ------|           |           |     |           |           |------
-//       -------------------------     -------------------------
-            bindings = <
-                &kp B       &none       &reset      &none       &bootloader         &out OUT_USB &out OUT_BLE &none        &none        &bt BT_CLR    &none   &none   &none  
-                &none       &none       &none       &none       &none               &none        &none        &none        &none        &none         &none   &none   &none  
-                &none       &none       &none       &none       &none         &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &none   &none   &none
-                &none       &none                                       &none    &none                                       &none       &none         &none   &none   &none
-                                                    &none       &none               &none       &none
+                &none   &none   &none           &none       &none       &reset       &none       &bootloader                    &none       &none       &none       &none       &none           
+                &none   &none   &none           &none       &none       &none        &none       &none                          &none       &none       &none       &none       &none         
+                &none   &none   &none           &kp KP_NUM  &none       &none        &none       &none            &none         &none       &none       &none       &none       &none         
+                &none   &none   &none           &none       &none                                             &none    &none                                        &none       &none         
+                                                                                     &none       &none                          &none       &none
             >;
         };
     };
